@@ -33,8 +33,13 @@ Start the server
 Add note
 
 ```bash
-  npm start --title="Your title.." --body="Your body.."
+  npm start add --title="Your title.." --body="Your body.."
 ```
 
 This will create a ``notes.json`` file in your current directory.
 
+Remove note
+
+```bash
+  npm start remove --title="Your title.."
+```
