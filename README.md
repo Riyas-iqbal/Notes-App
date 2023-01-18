@@ -53,3 +53,9 @@ Remove note
 ```bash
   npm start remove --title="Your title.."
 ```
+
+list notes
+
+```bash
+  npm start list
+```

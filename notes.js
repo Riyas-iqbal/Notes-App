@@ -31,8 +31,10 @@ const removeNote = (title) => {
     const note = loadNotes()
     const newNote = note.filter(note => note.title !== title)
     if (note.length == newNote.length) console.log(chalk.bgRed('title not found!'))
-    else console.log(chalk.bgGreen('title removed!'))
-    saveNotes(newNote)
+    else {
+        console.log(chalk.bgGreen('title removed!'))
+        saveNotes(newNote)
+    }
 }
 
 const listNotes = () => {
@@ -72,4 +74,4 @@ const loadNotes = () => {
     }
 }
 
-module.exports = { addNotes, getNotes, removeNote, listNotes, readNote }
+module.exports = { addNotes, removeNote, listNotes, readNote }
