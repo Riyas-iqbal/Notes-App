@@ -5,10 +5,9 @@ const getNotes = () => {
     console.log('Your Notes...')
 }
 
-
 const addNotes = (title, body) => {
     const notes = loadNotes()
-
+    
     notes.push({
         title,
         body
@@ -18,22 +17,23 @@ const addNotes = (title, body) => {
 }
 
 const saveNotes = (notes) => {
-    const notes = notes.stringify()
-    fs.writeFileSync('notes.json',notes)
+    try {
+        const newNotes = JSON.stringify(notes)
+        fs.writeFileSync('notes.json', newNotes)
+    } catch (error) {
+        console.log(error)
+    }
 }
-
 
 const loadNotes = () => {
     try {
         const dataBuffer = fs.readFileSync('notes.json')
-        const dataJSON = dataBuffer.stringify()
+        const dataJSON = dataBuffer.toString()
         return JSON.parse(dataJSON)
     } catch (e) {
         console.log('File not found!')
+        return []
     }
 }
-
-
-
 
 module.exports = { addNotes, getNotes }

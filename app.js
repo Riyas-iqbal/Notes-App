@@ -1,4 +1,4 @@
-const chalk = require('chalk')
+// const chalk = require('chalk')
 const yargs = require('yargs')
 const notes = require('./notes')
 
@@ -28,12 +28,12 @@ yargs.command({
 })
 
 
-yargs.command({
-    command:'remove',
-    describe:'Remove a note',
-    builder:{
-        
-    }
-})
+// yargs.command({
+//     command:'remove',
+//     describe:'Remove a note',
+//     builder:{
+
+//     }
+// })
 
 console.log(yargs.argv)
