@@ -7,13 +7,33 @@ const getNotes = () => {
 
 const addNotes = (title, body) => {
     const notes = loadNotes()
-    
-    notes.push({
-        title,
-        body
+
+    const duplicateNotes = notes.filter((note) => {
+        return note.title === title
     })
 
-    saveNotes(notes)
+    if (duplicateNotes.length == 0) {
+        notes.push({
+            title,
+            body
+        })
+
+        console.log('New note added')
+        saveNotes(notes)
+    } else {
+        console.log('Title ',title,' Already exist')
+    }
+
+}
+
+const removeNote = (title) => {
+    const note = loadNotes()
+    const newNote = note.filter((note) => {
+        return note.title !== title
+    })
+    if (note.length == newNote.length) console.log('title not found')
+    else console.log('title removed')
+    saveNotes(newNote)
 }
 
 const saveNotes = (notes) => {
@@ -36,4 +56,4 @@ const loadNotes = () => {
     }
 }
 
-module.exports = { addNotes, getNotes }
+module.exports = { addNotes, getNotes, removeNote }
