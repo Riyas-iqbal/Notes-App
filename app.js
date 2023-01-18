@@ -2,9 +2,7 @@
 const yargs = require('yargs')
 const notes = require('./notes')
 
-
 yargs.version('1.1.0')
-
 
 // Add a Note
 yargs.command({
@@ -22,7 +20,7 @@ yargs.command({
             type:'string'
         }
     },
-    handler: (argv) => {
+    handler(argv){                     //ES6 Method syntax
         notes.addNotes(argv.title,argv.body)
     }
 })
@@ -38,9 +36,18 @@ yargs.command({
             type: 'string'
         }
     },
-    handler:(argv)=>{
+    handler(argv){                     //ES6 Method syntax
         notes.removeNote(argv.title)
     }
 })
 
-yargs.argv
+//list notes
+yargs.command({
+    command:'list',
+    describe:'List all notes',
+    handler(){
+        notes.listNotes()
+    }
+})
+
+yargs.parse()
