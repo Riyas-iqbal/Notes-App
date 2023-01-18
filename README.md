@@ -7,10 +7,10 @@ The app uses file system to store the notes, it could be easily modified to use 
 
 Some of the commands supported by the app are:
 
-add : To add a new note
-remove : To remove a note
-list : To list all notes
-read : To read a note
+add : To add a new note.
+remove : To remove a note.
+list : To list all notes.
+read : To read a note.
 
 
 ## Run Locally
